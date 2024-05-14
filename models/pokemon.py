@@ -3,7 +3,7 @@ import requests
 
 def search20(offset):
     retrievedPokemons = []
-    for i in range(offset,offset+20):
+    for i in range(offset,(offset+20)):
         _pokemon = requests.get(f'https://pokeapi.co/api/v2/pokemon/{i}').json()
         pokemon = {
             "name": f"{_pokemon['forms'][0]['name']}",

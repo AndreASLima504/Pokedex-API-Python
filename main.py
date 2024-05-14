@@ -12,7 +12,10 @@ def index():
 @app.route("/", methods = ['POST'])
 def getPokemonIndex():
     offset = request.get_json()
-    return controllers.indexController.get20pokemon(offset[0])
+    retorno = controllers.indexController.get20pokemon(offset[0])
+    print(type(retorno))
+    return retorno
+
 
 # SHOW POKEMON DETAILS PAGE
 @app.route("/pokemon", methods = ['GET'])

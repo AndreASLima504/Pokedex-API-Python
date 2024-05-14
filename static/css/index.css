@@ -11,15 +11,15 @@
 #pokemonGrid{
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
+    justify-content: space-between;
 }
 
 .pokemonThumb{
     display: flex;
     flex-direction: column;
-    width: 15vw;
-    height: 20vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
+    width: 15%;
+    height: 20%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
