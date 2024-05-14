@@ -7,7 +7,8 @@ def search20(offset):
         _pokemon = requests.get(f'https://pokeapi.co/api/v2/pokemon/{i}').json()
         pokemon = {
             "name": f"{_pokemon['forms'][0]['name']}",
-            "thumbnail": f"{_pokemon['sprites']['other']['home']['front_default']}"
+            "id": f"{_pokemon['id']}",
+            "thumbImage": f"{_pokemon['sprites']['other']['home']['front_default']}"
         }
         retrievedPokemons.append(pokemon)
 
@@ -18,7 +19,7 @@ def searchPokemon(name):
     newPokemonSpecies = requests.get(f'https://pokeapi.co/api/v2/pokemon-species/{name}').json()
     pokemon = {
             "name": f"{newPokemon['forms'][0]['name']}",
-            "spriteLink": f"{newPokemon['sprites']['other']['official-artwork']['front_default']}",
+            "image": f"{newPokemon['sprites']['other']['official-artwork']['front_default']}",
             "description": f"{newPokemonSpecies['flavor_text_entries'][0]['flavor_text']}"
         }
     return pokemon

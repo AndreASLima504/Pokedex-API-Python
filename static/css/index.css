@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#container{
+    margin: auto;
+    width: 90vw;
+}
+
+#pokemonGrid{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+
+.pokemonThumb{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 20vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+

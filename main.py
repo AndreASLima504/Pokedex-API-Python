@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route("/", methods = ['GET'])
 def index():
-    return controllers.indexController.viewIndex()
+    # return controllers.indexController.viewIndex()
+    return render_template('index.html')
 
 @app.route("/", methods = ['POST'])
 def getPokemonIndex():
