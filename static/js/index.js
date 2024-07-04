@@ -2,7 +2,7 @@ var gOffset = 1;
 var page = 0
 
 async function request20pokemons(offset){
-    var response = await fetch("http://127.0.0.1:5000/", {
+    var response = await fetch("http://127.0.0.1:5000/api/index", {
         method: 'POST',
         body: JSON.stringify([offset]),
         headers: {
@@ -44,3 +44,4 @@ async function showMorePokemons() {
     console.log("Tempo decorrido: " + (endTime - startTime))
 }
 
+showMorePokemons()
