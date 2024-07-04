@@ -1,11 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 import models.pokemon
 
-def viewIndex():
+def view_index():
     return render_template('index.html')
 
-def get20pokemon(offset):
-    # pokemonList = []
-    # for pokemon in models.pokemon.search20(offset):
-    #     pokemonList.append(pokemon)
-    return models.pokemon.search20(offset)
+def get_20_pokemon(offset):
+    return models.pokemon.search_20(offset)

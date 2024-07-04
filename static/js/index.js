@@ -1,5 +1,5 @@
 var gOffset = 1;
-
+var page = 0
 
 async function request20pokemons(offset){
     var response = await fetch("http://127.0.0.1:5000/", {
@@ -14,14 +14,15 @@ async function request20pokemons(offset){
 }
 
 async function showMorePokemons() {
-    var pokemonsList = await request20pokemons(gOffset);
+    const startTime = performance.now();
+    var pokemonsList = await request20pokemons(page * 20 + 1);
     const gridContainer = document.getElementById("pokemonGrid");
     var frag = document.createDocumentFragment();
 
     pokemonsList.forEach(p => {
     var pokeName = p["name"],
         pokeId = p["id"],
-        pokeImg = p["thumbImage"];
+        pokeImg = p["thumb_image"];
 
 
     var temp = document.createElement('div');
@@ -38,14 +39,8 @@ async function showMorePokemons() {
     }
     });
     gridContainer.appendChild(frag)
-    console.log(gOffset)
-    gOffset += 20;
+    const endTime = performance.now()
+
+    console.log("Tempo decorrido: " + (endTime - startTime))
 }
 
-async function loopTest(){
-    for (let index = 0; index < 4; index++) {
-        await showMorePokemons(); // Espera cada chamada de showMorePokemons() completar antes de prosseguir
-    }
-}
-
-loopTest()

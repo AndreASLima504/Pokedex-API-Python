@@ -1,32 +1,32 @@
 from flask import Flask, request, jsonify, render_template
 import controllers.indexController
 import controllers.pokemonController
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
-@app.route("/", methods = ['GET'])
+@app.route("/home", methods = ['GET'])
 def index():
     # return controllers.indexController.viewIndex()
     return render_template('index.html')
 
-@app.route("/", methods = ['POST'])
-def getPokemonIndex():
+@app.route("/api/index", methods = ['POST'])
+def get_pokemon_index():
     offset = request.get_json()
-    retorno = controllers.indexController.get20pokemon(offset[0])
-    print(type(retorno))
-    return retorno
+    result = controllers.indexController.get_20_pokemon(offset[0])
+    return result
 
 
 # SHOW POKEMON DETAILS PAGE
-@app.route("/pokemon", methods = ['GET'])
-def showPokemon():
-    return controllers.pokemonController.viewPokemonDetails()
+@app.route("/pokemon/<pokemon_id>", methods = ['GET'])
+def show_pokemon():
+    return controllers.pokemonController.view_pokemon_page()
 
 # SENDS REQUEST FOR POKEMON DETAILS
 @app.route("/pokemon", methods = ['POST'])
-def searchPokemon():
+def search_pokemon():
     _request = request.get_json()
-    return controllers.pokemonController.searchPokemonDetails(_request[0])
+    return controllers.pokemonController.request_pokemon_details_pokemon_details(_request[0])
 
 if __name__ == '__main__':
         app.run(debug=True)
