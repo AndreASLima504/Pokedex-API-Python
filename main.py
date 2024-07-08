@@ -1,32 +1,26 @@
-from flask import Flask, request, jsonify, render_template
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import controllers.indexController
 import controllers.pokemonController
 from datetime import datetime, timedelta
 
-app = Flask(__name__)
+app = FastAPI()
 
-@app.route("/home", methods = ['GET'])
-def index():
-    # return controllers.indexController.viewIndex()
-    return render_template('index.html')
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir todas as origens. Alterar para uma lista de domínios específicos em produção.
+    allow_credentials=True,
+    allow_methods=["*"],  # Permitir todos os métodos (GET, POST, etc.)
+    allow_headers=["*"],  # Permitir todos os cabeçalhos
+)
 
-@app.route("/api/index", methods = ['POST'])
-def get_pokemon_index():
-    offset = request.get_json()
-    result = controllers.indexController.get_20_pokemon(offset[0])
+
+@app.get('/index')
+async def index_get_pokemon(offset: int):
+    result = controllers.indexController.get_20_pokemon(offset)
     return result
 
-
-# SHOW POKEMON DETAILS PAGE
-@app.route("/pokemon/<pokemon_id>", methods = ['GET'])
-def show_pokemon():
-    return controllers.pokemonController.view_pokemon_page()
-
 # SENDS REQUEST FOR POKEMON DETAILS
-@app.route("/pokemon", methods = ['POST'])
-def search_pokemon():
-    _request = request.get_json()
-    return controllers.pokemonController.request_pokemon_details_pokemon_details(_request[0])
-
-if __name__ == '__main__':
-        app.run(debug=True)
+# @app.route("/pokemon/<pokemon_id>", methods = ['POST'])
+# def search_pokemon(pokemon_id: int):
+#     return controllers.pokemonController.request_pokemon_details_pokemon_details(pokemon_id)
