@@ -17,7 +17,7 @@ app.add_middleware(
 
 
 @app.get('/index')
-async def index_get_pokemon(offset: int):
+async def index_get_pokemon(offset: int = 1):
     result = controllers.indexController.get_20_pokemon(offset)
     return result
 
