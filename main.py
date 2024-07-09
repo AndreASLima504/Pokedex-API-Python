@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import uvicorn 
 from fastapi.middleware.cors import CORSMiddleware
 import controllers.indexController
 import controllers.pokemonController
@@ -21,6 +22,9 @@ async def index_get_pokemon(offset: int):
     return result
 
 # SENDS REQUEST FOR POKEMON DETAILS
-# @app.route("/pokemon/<pokemon_id>", methods = ['POST'])
-# def search_pokemon(pokemon_id: int):
-#     return controllers.pokemonController.request_pokemon_details_pokemon_details(pokemon_id)
+@app.get("/pokemon")
+def search_pokemon(id):
+    return controllers.pokemonController.request_pokemon_details(id)
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=8000)
