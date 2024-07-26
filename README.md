@@ -13,9 +13,11 @@ Esta API visa facilitar o consumo da API pública PokeAPI por meio de padroniza�
   Útil para telas iniciais ou telas de listagem, que precisam solicitar quantidades consideráveis de pokémons rapidamente
 
   ### Dados:
+  <p>
   "name": String (nome do pokémon)
   "id": int (índice do pokemon/id único)
   "thumb_image": String (url de imagem de thumbnail do pokémon)
+  </p>
 
 <hr>
 
@@ -24,6 +26,7 @@ Esta API visa facilitar o consumo da API pública PokeAPI por meio de padroniza�
   
   ### Envia requisição dos dados de um pokémon específico por nome ou índice na pokédex
   ### Dados:
+  <p>
   "id": int (índice do pokemon/id único)
   "name": String (nome do pokémon)
   "image": String (url de arte oficial do pokémon)
@@ -31,3 +34,4 @@ Esta API visa facilitar o consumo da API pública PokeAPI por meio de padroniza�
   "types": List<String> (Lista de tipo(s) do pokémon)
   "flavor-text": String (texto de ambientação)
   "color": String (cor dominante, útil para customização no front-end)
+  </p>
