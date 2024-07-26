@@ -1,9 +1,9 @@
 import models.pokemon
 import concurrent.futures
 
-def get_20_pokemon(offset):
+def get_next_pokemon(offset, quantity):
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(models.pokemon.search_pokemon, i) for i in range(offset, offset + 20)]
+        futures = [executor.submit(models.pokemon.search_pokemon, i) for i in range(offset, offset + quantity)]
         pokemons = [f.result() for f in concurrent.futures.as_completed(futures) if f.result() is not None]
 
 
