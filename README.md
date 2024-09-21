@@ -5,6 +5,8 @@
 Esta API visa facilitar o consumo da API pública PokeAPI por meio de padronização de dados e endpoints preparados
 </div>
 
+
+
 ## Funções disponíveis: 
   ### URL:
   http://localhost:8000/index/?offset=<deslocamento>&quantity=<quantidade de pokémons>
@@ -17,8 +19,8 @@ Esta API visa facilitar o consumo da API pública PokeAPI por meio de padroniza�
   - "id": int (índice do pokemon/id único)
   - "thumb_image": String (url de imagem de thumbnail do pokémon)
   
-
 <hr>
+
 
   ### URL:
   http://localhost:8000/pokemon/?id=<nome[string]/id do pokémon[int]>
