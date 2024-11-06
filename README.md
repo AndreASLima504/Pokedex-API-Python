@@ -11,7 +11,7 @@ Esta API visa facilitar o consumo da API pública PokeAPI por meio de padroniza�
   ### URL:
   http://localhost:8000/index/?offset=<deslocamento>&quantity=<quantidade de pokémons>
   
-  ### Retorna dados dos próximos [x quantidade] de pokémons com base no índice (recebe parâmetro de deslocamento)
+  ### Retorna dados dos próximos [x] pokémons com base no índice (recebe parâmetro de deslocamento)
   Útil para telas iniciais ou telas de listagem, que precisam solicitar quantidades consideráveis de pokémons rapidamente
 
   ### Dados:
